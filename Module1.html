@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Module 1 exercise</title>
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Header1() {
+            return (
+                <div>
+                    <h2>Welcome to react transportation</h2>
+                    The best way to buy vehicles
+                </div>
+            )
+        }
+        var s={
+
+        }
+        function Header2(){
+            return (
+                <div>
+                    <h2>Choose Options</h2>
+                    <div>
+                        New Only <input type="checkbox" />
+                    </div>
+                    <p>
+                        Select Type
+                        <select>
+                            <option value="All">All</option>
+                            <option value="Cars">Cars</option>
+                            <option value="Trucks">Trucks</option>
+                            <option value="Convirtibles">Convirtibles</option>
+                        </select>
+                    </p>
+                </div>
+            )
+        }
+        function ShowTitle(props) {
+            return <h2>{props.title}</h2>
+        }
+        function ShowOneItem(props){
+            return (
+                <div>
+                    <table>
+                        <tr>
+                            <th>Year</th> 
+                            <th>Model</th> 
+                            <th>Price</th> 
+                            <th>Buy</th> 
+                        </tr>
+                        <tr>
+                            <td>{props.item.year}</td>
+                            <td>{props.item.model}</td>
+                            <td>${props.item.price}</td>
+                            <td><input type="submit" value="Buy now"/></td>
+
+                        </tr>
+                    </table>
+                </div>
+            )
+        }
+        function ShowList() {
+            const cars = [
+                {
+                    year: 2013,
+                    model: 'A',
+                    price: 32000
+                },
+                {
+                    year: 2011,
+                    model: 'B',
+                    price: 4400
+                },
+                {
+                    year: 2016,
+                    model: 'B',
+                    price: 15500
+                }
+            ];
+
+            const trucks = [
+                {
+                    year: 2014,
+                    model: 'D',
+                    price: 18000
+                },
+                {
+                    year: 2013,
+                    model: 'E',
+                    price: 5200
+                }
+            ];
+
+            const convirtibles = [
+                {
+                    year: 2009,
+                    model: 'F',
+                    price: 2000
+                },
+                {
+                    year: 2010,
+                    model: 'G',
+                    price: 6000
+                },
+                {
+                    year: 2012,
+                    model: 'H',
+                    price: 12500
+                },
+                {
+                    year: 2017,
+                    model: 'M',
+                    price: 50000
+                }
+            ];
+            
+            return (
+                <div>
+                    <ShowTitle title="Cars"/>
+                    {
+                        cars.map((car, index) => {
+                            return (
+                                <ShowOneItem
+                                    item={car}
+                                    key={index}
+                                />
+                            );
+                        })
+                    }
+                    <ShowTitle title="Trucks"/>
+
+                    {
+                        trucks.map((truck, index) => {
+                            return (
+                                <ShowOneItem
+                                    item={truck}
+                                    key={index}
+                                />
+                            );
+                        })
+                    }
+
+                    <ShowTitle title="Convirtibles"/>
+                    
+                    {
+                        convirtibles.map((convirtible, index) => {
+                            return (
+                                <ShowOneItem
+                                    item={convirtible}
+                                    key={index}
+                                />
+                            );
+                        })
+                    }
+                </div>
+            )
+        }
+        function Main(){
+            return (
+                <div>
+                    <Header1/>
+                    <Header2/>
+                    <ShowList/>
+                </div>
+            )
+        }
+        ReactDOM.render(
+            <Main/>,
+            document.getElementById("root")
+        )
+    
+    </script>
+</body>
+</html>

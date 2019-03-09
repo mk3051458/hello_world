@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Composing functional components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function ShowTitle(props) {
+            return <h1>{props.title}</h1>
+        }
+        function ShowCount(props){
+            return <h3>Total number of items :{props.count}</h3>
+        }
+        function ShowItems(props){
+            return <li>{props.contents}</li>
+        }
+        function ListItems(props){
+            return (
+                <div>
+                    <h3>{props.cat}</h3>
+                    <ol>
+                    
+                        <li>{props.items[0]}</li>
+                        <li>{props.items[1]}</li>
+                        <li>{props.items[2]}</li>
+                    </ol>
+                </div>
+            )
+        }
+        function Main() {
+            return (
+                <div>
+                    <ShowTitle title="My shopping list"/>
+                    <ShowCount count= "9"/>
+                    <ListItems cat="Food" items={["Apple", "Bread", "Cheese"]}/>
+                    <ListItems cat="Clothes" items={["Shirt", "Pent", "Hat"]}/>
+                    <ListItems cat="Supplies" items={["Pen", "Paper", "Glue"]}/>
+                </div>
+            )
+        }
+        var element = <Main/>
+        ReactDOM.render(
+            element , 
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

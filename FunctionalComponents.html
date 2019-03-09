@@ -1,0 +1,38 @@
+<!-- A React Component is an independent reusable component that outputs a React Element based on its properties and state.
+
+There are two types of React Components:
+
+Functional Components
+Class Components
+
+Class Components have state, lifecycle methods, and properties while Functional Components only have properties -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Functional components</title>
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+         function HelloWorld(props) {
+                return <h1>Hello World!{props.name[props.index]}</h1>;
+            }
+         var element = <HelloWorld index="1" name={['Mohit','Ajay']}/>;
+
+         ReactDOM.render(
+                element,
+                document.getElementById("root")
+            )
+
+    </script>
+    
+</body>
+</html>
