@@ -22,7 +22,8 @@ Class Components have state, lifecycle methods, and properties while Functional 
 <body>
     <div id="root"></div>
     <script type="text/babel">
-         function HelloWorld(props) {
+         function HelloWorld(props)
+         {
                 return <h1>Hello World!{props.name[props.index]}</h1>;
             }
          var element = <HelloWorld index="1" name={['Mohit','Ajay']}/>;
